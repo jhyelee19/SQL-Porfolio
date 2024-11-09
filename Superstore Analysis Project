@@ -26,11 +26,20 @@ VALUES
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
 
 
-
 -- write a SQL query that orders items by price
+SELECT * FROM superstore
+ORDER BY price ASC;
+
+-- write a SQL query that show a statistic about item prices like a sum, average, minimum, maximum, or count, Ex: total amount pricing for each category
+SELECT SUM(price), category FROM superstore 
+GROUP BY category;
 
 
--- write a SQL query that show a statistic about item prices llike a sum, average, minimum, maximum, or count
+-- write a SQL query that will show a statistic about the price for items in the category of kitchen supplies, Ex: average amount of the kitchen supplies category
+SELECT AVG(price) FROM superstore
+WHERE category = 'Kitchen Supplies';
 
-
--- 
+-- show the count of average rating of higher than 4.5 for each category.
+SELECT COUNT(average_rating), category FROM superstore
+WHERE average_rating > 4.5
+GROUP BY category;
