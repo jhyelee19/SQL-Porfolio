@@ -59,12 +59,12 @@ VALUES
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
 
 # Analysis: 
---show higher than 250 averaged revenue for industry.
+--Which industries show higher than $250 Billion average revenue?
 SELECT industry, AVG(revenue) AS avg_revenue FROM fortune_companies
 GROUP BY industry
 HAVING avg_revenue >=250;
 
---show companies with healthcare benefits, higher than 20 PTO days, and higher than 10 weeks of maternity leave. 
+--Which companies have with healthcare benefits, higher than 20 PTO days, and higher than 10 weeks of maternity leave. 
 SELECT company_name FROM fortune_companies
 WHERE healthcare_benefits = "1" 
 AND paid_time_off_days >= "20"
@@ -74,7 +74,6 @@ AND maternity_leave_weeks >= "10";
 SELECT company_name, MAX(revenue)
 FROM fortune_companies
 WHERE industry = "Retail";
-
 
 --Assign all the companies in the Healthcare industry as "very mother friendly workplace", "acceptable", or "not good" based on the maternity leave offered. 
 SELECT company_name, maternity_leave_weeks,
